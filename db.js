@@ -1,16 +1,18 @@
+const { randomID } = require("./helper.js");
+
 function messageDb() {
   const db = [
     {
       text: "Hi there!",
       user: "Amando",
       added: new Date(),
-      id: crypto.randomUUID(),
+      id: randomID(),
     },
     {
       text: "Hello World!",
       user: "Charles",
       added: new Date(),
-      id: crypto.randomUUID(),
+      id: randomID(),
     }
   ];
 

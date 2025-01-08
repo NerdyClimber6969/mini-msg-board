@@ -2,6 +2,8 @@ const express = require("express");
 const messageDb = require("./db.js");
 const { messageRouter } = require("./routes/messageRouter.js");
 const path = require("node:path");
+const { randomID } = require("./helper.js");
+
 const PORT = 3000;
 
 const app = express();
@@ -15,7 +17,7 @@ app.get("/", (req, res) => {
 });
 
 app.post("/new", (req, res) => {
-    const newMessage = { ...req.body, added: new Date(), id: crypto.randomUUID(), }
+    const newMessage = { ...req.body, added: new Date(), id: randomID(), }
     messageDb.addNew(newMessage);
     res.redirect("/");
 });
